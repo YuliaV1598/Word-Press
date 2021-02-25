@@ -1,0 +1,433 @@
+@font-face {
+    font-family: 'Futura PT';
+    src: url(fonts/FuturaPTBook.woff) format('woff'),
+    url(fonts/FuturaPTBook.woff2) format('woff2');
+    font-display: swap;
+    font-weight: 400; 
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Futura PT';
+    src: url(fonts/FuturaPTMedium.woff) format('woff'),
+    url(fonts/FuturaPTMedium.woff2) format('woff2');
+    font-display: swap;
+    font-weight: 500; 
+    font-style: normal;
+}
+:root {
+    --accent-color: #5D71DD;
+    --dark-color: #2F2222; 
+    --grid-gap: 40px;
+}
+
+body{
+    overflow-anchor: none;
+    margin: 0;
+    font-weight: 500;
+    color: var(--color-dark);
+    background-color: #f9f9f9;
+    font-family: 'Futura PT', sans-serif;
+}
+* {
+   box-sizing: border-box; 
+}
+a {
+    color: inherit;
+    text-decoration: none;
+}
+img {
+    max-width: 100%;
+}
+.form-btn {
+    width: 100%;
+    border-radius: 20px;
+    background-color: var(--accent-color);
+    height: 50%;
+
+    font-family: 'Futura PT' sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 23px;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.form-input {
+    background: #F5F5F5;
+    border-radius: 20px;
+    width: 100%;
+    padding-left: 30px;
+    height: 49px;
+    font-family: 'Futura PT' sans-serif;
+font-weight: 400;
+font-size: 18px;
+line-height: 23px;
+color: rgba(47, 34, 34, 0.4);
+border: none;
+display: block;
+}
+.list-reset {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.btn-rest {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 0;
+}
+.container { /*не работает. весь контент должен быть по центру*/
+    max-width: 1430px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+.visually-hidden{
+    position: absolute !important;
+    clip: rect(1px 1px 1px 1px);
+    clip: rect(1px 1px 1px 1px 1px);
+    padding: 0 !important;
+    border: 0 !important;
+    height: 1px !important;
+    width: 1px !important;
+    overflow: hidden;
+}
+
+
+/* header*/ 
+
+.header {
+    background-color: white;
+    padding-bottom: 4px;
+    padding-top: 6px;
+}
+
+/* не работает. список должен быть вместе с номером в одном месте справа*/
+.header__container { 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.header__logo {
+    transform: translateY(5px);
+}
+.header__right { /* не работает*/
+    display: flex;
+    align-items: center;
+}
+.header__nav{
+    margin-right: 10px;
+}
+.nav_list {
+    display: flex;
+    align-items: center;
+}
+.nav__item:not(:last-child){
+    margin-right: 40px;
+}
+.nav__link {
+    position: relative;
+    font-size: 18px;
+    color: var(--dark-color);
+}
+.nav__link--current {
+    color: var(--accent-color);
+}
+.nav__link--current::after { /*очень странно работает. должен быть эффект на слове главное*/
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background-color: currentColor;
+}
+.phone {
+font-size: 18px;
+font-weight: 500;
+color: var(--accent-color); 
+background-image: url(./img/phone.svg);
+background-position: left center;
+background-repeat: no-repeat;
+padding-left: 24px;
+}
+.banner {
+    height: 300px;
+    background-image: url(./img/banner.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.content {
+    padding-top: var(--grid-gap);
+    padding-bottom: 110px;
+}
+.content__container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: var(--grid-gap);
+}
+.posts{
+    grid-column: 3 span;
+}
+
+.blog-posts {
+    position: relative;
+    padding: var(--grid-gap);
+    width: 100%;
+    height: 100%;
+    background: #FFFFFF;
+    border-radius: 20px;
+    transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out ;
+}
+.blog-posts__category {
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 5;
+    display: inline-block;
+    background: #F7F8FD;
+    padding: 8px 17px;
+    border-radius: 8px;
+    font-size: 16px;
+    line-height: 21px;
+    color: var(--accent-color);
+}
+.blog-posts--main {
+    height: 280px;
+    margin-bottom: var(--grid-gap);
+}
+.blog-posts__title {
+    margin-bottom: 20px;
+}
+.blog-posts__link::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.blog-title {
+    margin: 0;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 31px;
+    color: var(--dark-color);
+}
+
+.blog-posts__desc {
+    margin: 0;
+    padding-right: var(--grid-gap);
+    font-size: 18px;
+    line-height: 23px;
+    color: rgba(47, 34, 34, 0.4);
+}
+
+.blog-posts__date {
+position: absolute;
+right: var(--grid-gap);
+top: var(--grid-gap);
+font-size: 16px;
+line-height: 21px;
+color: rgba(47, 34, 34, 0.4);
+}
+.posts-grid {
+    margin-bottom: 80px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr );
+    grid-template-rows: repeat(8, 180px);
+    gap: var(--grid-gap);
+}
+
+.posts-grid__item:nth-child(5n + 1) {
+    grid-column: 2 span;
+    grid-row: 2 span;
+}
+
+.posts-grid__item:nth-child(5n + 2) {
+    grid-row: 2 span;
+}
+.posts-grid__item:nth-child(5n + 3) {
+    grid-row: 2 span;
+}
+.posts-grid__item:nth-child(5n + 4) {
+    grid-column: 2 span;
+}
+.posts-grid__item:nth-child(5n + 5) {
+    grid-column: 2 span;
+}
+.posts-grid__item:nth-child(5n + 2) .blog-posts {
+    background: var(--accent-color);
+    padding-left: 30px;
+    padding-right: 30px;
+}
+.posts-grid__item:nth-child(5n + 2) .blog-posts__category{
+    background-color: #7d8de4;
+    color: white;
+}
+.posts-grid__item:nth-child(5n + 2) .blog-posts__title{
+    color: white;
+}
+.posts-grid__item:nth-child(5n + 2) .blog-posts__date {
+    top: auto;
+    right: auto;
+    bottom: var(--grid-gap);
+    left: 30px;
+    color: white;
+}
+.posts-grid__item:nth-child(5n + 2) .blog-posts__desc {
+    display: none;
+}
+.posts-grid__item:nth-child(5n + 3) .blog-posts {
+    background: var(--accent-color);
+    padding-left: 30px;
+    padding-right: 30px;
+}
+.posts-grid__item:nth-child(5n + 3) .blog-posts__category{
+    background-color: #7d8de4;
+    color: white;
+}
+.posts-grid__item:nth-child(5n + 3) .blog-posts__title{
+    color: white;
+}
+.posts-grid__item:nth-child(5n + 3) .blog-posts__date {
+    top: auto;
+    right: auto;
+    bottom: var(--grid-gap);
+    left: 30px;
+    color: white;
+}
+.posts-grid__item:nth-child(5n + 3) .blog-posts__desc {
+    display: none;
+}
+.posts-grid__item:nth-child(5n + 4) .blog-posts {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+.posts-grid__item:nth-child(5n + 4) .blog-posts__date {
+    top: 30px;
+}
+.posts-grid__item:nth-child(5n + 4) .blog-posts__category {
+    margin-bottom: 20px;
+}
+.posts-grid__item:nth-child(5n + 4) .blog-posts__desc {
+    display: none;
+}
+.posts-grid__item:nth-child(5n + 5) .blog-posts {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+.posts-grid__item:nth-child(5n + 5) .blog-posts__date {
+    top: 30px;
+}
+.posts-grid__item:nth-child(5n + 5) .blog-posts__category {
+    margin-bottom: 20px;
+}
+.posts-grid__item:nth-child(5n + 5) .blog-posts__desc {
+    display: none;
+}
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.pagination__item:not(:last-child) {
+    margin-right: 20px;
+}
+.pagination__link {
+    position: relative;
+font-size: 18px;
+line-height: 23px;
+color: #000;
+}
+
+.pagination__link--current {
+    color: var(--accent-color);
+}
+.pagination__link--current::after { /*очень странно работает. должен быть эффект на слове главное*/
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background-color: currentColor;
+}
+.popular-posts__title {
+    margin-bottom: 21px;
+}
+.populae-post__article {
+    padding: 0;
+    background: transparent;
+    padding-bottom: 9px;
+    border-radius: 0;
+    border-bottom: 1px solid #e5e4e4;
+}
+
+.populae-post__article .blog-posts__title {
+font-size: 18px;
+line-height: 23px;
+padding-top: 9px;
+font-weight: 400;
+margin-bottom: 10px;
+}
+.populae-post__article .blog-posts__date { 
+    position: initial;
+    font-size: 18px;
+    line-height: 23px;
+}
+.popular-posts__item:last-child .populae-post__article {
+border-bottom: 1px solid transparent;
+}
+.popular-posts{
+    margin-bottom: 32px;
+}
+.subscribe {
+    padding: var(--grid-gap) 0;
+    background: #FFFFFF;
+    border-radius: 20px;
+}
+.subscribe__title{
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.sub-form__input{
+margin-bottom: 20px;
+}
+.sub-form {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+.form__btn span {
+    margin-right: 12px;
+}
+.footer {
+    background-color: #f1f2f8;
+    padding-top: var(--grid-gap);
+    padding-bottom: var(--grid-gap);
+}
+.footer__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.footer__logo {
+    display: inline-block;
+    margin-bottom: 30px;
+}
+.footer-nav {
+    margin-bottom: 65px;
+   
+}
+.footer-nav .nav__item:not(:last-child) {
+    margin-right: 80px;
+}
+.footer__copy{
+    font-size: 14px;
+    line-height: 18px;
+    color: var(--dark-color);
+}
